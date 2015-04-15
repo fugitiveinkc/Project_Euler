@@ -11,4 +11,5 @@ fibonacci 1 = 1
 fibonacci 2 = 1
 fibonacci n = fibonacci (n-1) + fibonacci (n-2)
 
-fibonaccisum = [fibonacci y | y <- [1..]] --Something tricky here
+fibonaccisum :: Int
+fibonaccisum = sum (takeWhile (<4000000) [fibonacci y | y <- [1..], even (fibonacci y)]) --Something tricky here
