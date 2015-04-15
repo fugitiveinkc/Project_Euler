@@ -1,3 +1,8 @@
+/*
+Problem title: Largest prime factor
+Problem summary: What is the largest prime factor of the number 6008511475143
+*/
+
 #include <iostream>
 #include <math.h>
 
@@ -17,5 +22,5 @@ int factors(int a)
 
 int main()
 {
-	
+
 }
