@@ -15,4 +15,7 @@ while fib_elem <= 4000000:
 	fib_elem = fib_elem + fib_prev
 	fib_prev = temp
 print("The answer is: " + str(fib_sum) + ".")
-		
+
+#Solution using Generator
+
+#Solution using Iterator		
