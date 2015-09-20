@@ -5,6 +5,8 @@ Summary: By considering the terms in the Fibonacci sequence whose values do not 
 
 '''
 
+'''
+
 fib_sum = 0
 fib_elem = 2
 fib_prev = 1
@@ -16,6 +18,20 @@ while fib_elem <= 4000000:
 	fib_prev = temp
 print("The answer is: " + str(fib_sum) + ".")
 
+'''
+
 #Solution using Generator
+
+def fib_seq(maximum ,a = 1, b = 1):
+	while b < maximum:
+		yield b
+		a, b = b, a + b
+
+summation = 0		
+for x in fib_seq(4000000):
+	if x%2 == 0:
+		summation += x
+print(summation)
+
 
 #Solution using Iterator		
