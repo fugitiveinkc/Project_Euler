@@ -32,4 +32,3 @@ for i in range(len(thousand_digit_number)-stretch_number):
 		largest_product = current_product
 
 print largest_product
-	
