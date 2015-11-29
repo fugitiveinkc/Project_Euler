@@ -15,20 +15,10 @@ Note:
 #--Solution 1 -- 11/28/2015--#
 
 
-#Path sum traversal function (Recursive -- Depth or Breadth first)
-
-'''
-
-1) Your at a number
-2) You check if you can go right and down
-3) You want to return the minimum path
-
-'''
-
 #Minimal path sum (recrusive -- breadth first)
 
 def min_path_sum(row_index, col_index):
-	
+		
 	current = matrix[row_index][col_index]
 	
 	try:
@@ -50,6 +40,12 @@ def min_path_sum(row_index, col_index):
 		return current + min_path_sum(row_index, col_index+1)
 	else:
 		return min([current + min_path_sum(row_index+1, col_index), current + min_path_sum(row_index, col_index+1)])
+
+
+#--Solution 2 -- 11/29/2015--#
+#Use dijkstra's algorithm
+
+
 
 
 
