@@ -82,4 +82,3 @@ def generate_map(matrix): #Generates a list with every matrix value as a node.  
 				generated_map[row_index][col_index].neighbors = [generated_map[row_index][col_index+1]]	
 
 	return generated_map
-
