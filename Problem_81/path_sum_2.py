@@ -8,7 +8,8 @@ Purpose: Only moving right and down and starting from the left top corner of a m
 Note:
 	-Problem with function (misread problem!)
 	-Need to addred what happens when you get to second to last column.
-
+	-New idea: Test every permutation of right and down
+	
 '''
 
 #--Solution 1 -- 11/28/2015--#
