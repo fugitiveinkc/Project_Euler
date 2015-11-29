@@ -15,7 +15,41 @@ Note:
 #--Solution 1 -- 11/28/2015--#
 
 
-#Path sum traversal function (Recursive)
+#Path sum traversal function (Recursive -- Depth or Breadth first)
+
+'''
+
+1) Your at a number
+2) You check if you can go right and down
+3) You want to return the minimum path
+
+'''
+
+#Minimal path sum (recrusive -- breadth first)
+
+def min_path_sum(row_index, col_index):
+	
+	current = matrix[row_index][col_index]
+	
+	try:
+		right = matrix[row_index][col_index + 1]
+	except:
+		right = None
+	try: 
+		down = matrix[row_index + 1][col_index]
+	except:
+		down = None
+	
+	if right == None and down == None and current == matrix[len(matrix)-1][len(matrix[0])-1]:
+		return current
+	elif right == None and down == None:
+		return float('inf')
+	elif right == None:
+		return current + min_path_sum(row_index+1, col_index)
+	elif down == None:
+		return current + min_path_sum(row_index, col_index+1)
+	else:
+		return min([current + min_path_sum(row_index+1, col_index), current + min_path_sum(row_index, col_index+1)])
 
 
 
@@ -26,3 +60,4 @@ matrix = [row.strip('\n').split(',') for row in matrix]
 for row_index, row in enumerate(matrix):
 	for col_index, col in enumerate(row):
 		matrix[row_index][col_index] = int(col)
+print min_path_sum(0, 0)
