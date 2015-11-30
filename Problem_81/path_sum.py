@@ -7,6 +7,7 @@ Purpose: Only moving right and down and starting from the left top corner of a m
 
 Note:
 	-Dijkstra's algorithm would work here
+
 	
 '''
 #Function used in every solution
@@ -80,5 +81,44 @@ def generate_map(matrix): #Generates a list with every matrix value as a node.  
 
 			elif row_index == len(row)-1:
 				generated_map[row_index][col_index].neighbors = [generated_map[row_index][col_index+1]]	
+	
+	#Sort neighbors
+#	for row_index in range(len(generated_map)):
+#		for col_index in range(len(generated_map[0])):
+#			generated_map[row_index][col_index].neighbors.sort(key=lambda x: x.value)
 
 	return generated_map
+
+def d_path(current): #Problem with implementing dijkstra's algorithm
+
+	current.visited = True
+
+	if current == generated_map[-1][-1]:
+		return True
+
+	elif current.neighbors:
+		current.neighbors.sort(key=lambda x: x.value)
+		for neighbor in current.neighbors:
+			current.next_node = neighbor
+			if neighbor.visited == False and d_path(neighbor):
+				return True
+		return False
+
+	else:
+		return False
+
+def shortest_path_sum(beginning_node):
+	if beginning_node.next_node:
+		print beginning_node.value
+		return beginning_node.value + shortest_path_sum(beginning_node.next_node)
+	else:
+		print beginning_node.value
+		return beginning_node.value
+	 
+matrix = read_matrix('test_matrix.txt')
+print matrix
+generated_map = generate_map(matrix)
+d_path(generated_map[0][0])
+print shortest_path_sum(generated_map[0][0])
+
+
