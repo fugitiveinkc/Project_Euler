@@ -11,3 +11,4 @@ class node:
 		self.index = index
 		self.neighbors = neighbors
 		self.visited = False
+		self.next_node = None
