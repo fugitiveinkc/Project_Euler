@@ -12,6 +12,7 @@ def read_matrix(filename):
 	for row_index, row in enumerate(matrix):
 		for col_index, col in enumerate(row):
 			matrix[row_index][col_index] = int(col)
+
 	return matrix
 
 
@@ -79,7 +80,7 @@ def shortest_path_sum(graph):
 	return path_sum	
 
 
-matrix = read_matrix('/home/rye_yawn/Documents/Python/Project_Euler/Problem_81/p081_matrix.txt')
+matrix = read_matrix('p081_matrix.txt')
 #print matrix
 graph = graph_generator(matrix)
 d_algorithm(graph)
