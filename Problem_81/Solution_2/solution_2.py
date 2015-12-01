@@ -31,6 +31,7 @@ def graph_generator(matrix):
 		for c_i, vertex in enumerate(row): #Below is all edge cases
 			if r_i != len(graph)-1 and c_i != len(row)-1:
 				vertex.neighbors = [graph[r_i+1][c_i], graph[r_i][c_i+1]]				
+
 			elif r_i == len(graph)-1 and c_i == len(row)-1:
 				continue
 
@@ -74,6 +75,7 @@ def shortest_path_sum(graph):
 		if not current.previous:
 			break
 		current = current.previous
+
 	return path_sum	
 
 
