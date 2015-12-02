@@ -25,7 +25,7 @@ def graph_generator(matrix):
 			graph[r_i].append(Node(col_value))	
 	#Update neighbors between each node
 	for r_i, row in enumerate(graph):
-		for c_i, vertex in enumerate(row): #Below is all edge cases
+		for c_i, vertex in enumerate(row): #Below is all edge cases (Better way to do this?)
 			if  r_i == 0 and c_i == 0:
 				vertex.neighbors = [graph[r_i+1][c_i], graph[r_i][c_i+1]]
  			elif r_i == len(matrix)-1 and c_i == 0:
