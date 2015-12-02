@@ -6,27 +6,23 @@ from node import Node
 #Function used to import matrix
 
 def read_matrix(filename):
-	
 	matrix = open(filename, 'r')
 	matrix = [row.strip('\n').split(',') for row in matrix]
 	for row_index, row in enumerate(matrix):
 		for col_index, col in enumerate(row):
 			matrix[row_index][col_index] = int(col)
-
 	return matrix
 
 
 #Function used to generate graph
 
 def graph_generator(matrix):
-	
 	#Generate map
 	graph = []
 	for r_i, row in enumerate(matrix):
 		graph.append([])
 		for c_i, col_value in enumerate(row):
 			graph[r_i].append(Node(col_value))	
-
 	#Update neighbors between each node
 	for r_i, row in enumerate(graph):
 		for c_i, vertex in enumerate(row): #Below is all edge cases
@@ -41,9 +37,7 @@ def graph_generator(matrix):
 			
 			elif c_i == len(row)-1:
 				vertex.neighbors = [graph[r_i+1][c_i]]
-	
 	graph[0][0].dist_source = 0 #This is the source
-
 	return graph
 
 
@@ -55,13 +49,16 @@ def d_algorithm(graph):
 	while True:
 		if current == graph[-1][-1] or len(unvisited) == 0:
 			break
-
 		for vertex in current.neighbors: #I think this checks neighbors that are visited as well.
-			distance = vertex.value + current.value + current.dist_source
-			if distance < vertex.dist_source:
-				vertex.dist_source = distance
-				vertex.previous = current
+			if vertex.visited == True:
+				continue
+			else:
+				distance = vertex.value + current.value + current.dist_source
+				if distance < vertex.dist_source:
+					vertex.dist_source = distance
+					vertex.previous = current
 		unvisited.remove(current)
+		current.visited = True
 		current = min(unvisited, key = lambda x: x.dist_source)
 
 
@@ -76,7 +73,6 @@ def shortest_path_sum(graph):
 		if not current.previous:
 			break
 		current = current.previous
-
 	return path_sum	
 
 
