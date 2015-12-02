@@ -56,7 +56,7 @@ def d_algorithm(graph):
 		if current == graph[-1][-1] or len(unvisited) == 0:
 			break
 
-		for vertex in current.neighbors:
+		for vertex in current.neighbors: #I think this checks neighbors that are visited as well.
 			distance = vertex.value + current.value + current.dist_source
 			if distance < vertex.dist_source:
 				vertex.dist_source = distance
