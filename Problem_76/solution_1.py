@@ -26,11 +26,11 @@ def partition_sum_count(number): #Slow because produces useless combinations
 	for choose in range(2,number+1):
 		for numbers in combinations_with_replacement(range(1,number), choose): 
 			if sum(numbers) == number:
-				#print numbers
+				print numbers
 				total_sums += 1
 	return total_sums
 
-print(partition_sum_count(int(argv[1])))
+print partition_sum_count(int(argv[1])
 
 
 
