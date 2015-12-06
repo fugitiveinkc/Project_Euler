@@ -40,11 +40,11 @@ def graph_generator(matrix):
 
 #Function to execute dijkstra's algorithm
 
-def d_algorithm(graph):
+def d_algorithm(start, end, graph):
 	unvisited = [vertex for row in graph for vertex in row]
-	current = graph[0][0]
+	current = start
 	while True:
-		if current == graph[-1][-1] or len(unvisited) == 0:
+		if current == end or len(unvisited) == 0:
 			break
 		for vertex in current.neighbors: #I think this checks neighbors that are visited as well.
 			if vertex.visited == True:
@@ -61,8 +61,8 @@ def d_algorithm(graph):
 
 #Function to print shortest path sum
 
-def shortest_path_sum(graph):
-	current = graph[-1][-1]
+def shortest_path_sum(last_point, graph):
+	current = last_point
 	path_sum = 0
 	while True:
 		#print current.value
@@ -76,6 +76,6 @@ def shortest_path_sum(graph):
 matrix = read_matrix('p081_matrix.txt')
 #print matrix
 graph = graph_generator(matrix)
-d_algorithm(graph)
-solution = shortest_path_sum(graph)
+d_algorithm(graph[0][0], graph[-1][-1], graph)
+solution = shortest_path_sum(graph[-1][-1], graph)
 print solution
