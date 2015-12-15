@@ -4,9 +4,10 @@ Title: Problem 99 -- Largest exponential
 
 Objective: Find the line number with the greatest exponential value
 
-Note:
-	-Waaaay too slow.  Needs to optimize how I find the exponential
 '''
+#Necessary libraries
+
+from math import log
 
 #Read in file
 
@@ -21,8 +22,8 @@ largest_exponential = 0
 largest_line_number = 0
 for line_number in range(len(exponentials)):
 		a, b = exponentials[line_number]
-		print a
-		if a**b > largest_exponential:
+		if log(a)*b > largest_exponential:
 			largest_line_number = line_number+1
+			largest_exponential = log(a)*b
 print largest_line_number
 			
