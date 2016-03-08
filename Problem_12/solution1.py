@@ -30,7 +30,7 @@ def factor_count(number):
 
 for x in count(1):
 	temp = tri_num_gen(x)
-	if factor_count(temp) > 5:
+	if factor_count(temp) > 500:
 		print temp
 		break
 
