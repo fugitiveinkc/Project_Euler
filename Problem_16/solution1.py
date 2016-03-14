@@ -8,6 +8,4 @@ Note: Trivial since python handles such large numbers
 
 '''
 
-large_number = str(2**1000)
-result = sum(int(x) for x in large_number)
-print result
+print sum(int(x) for x in str(2**1000))
