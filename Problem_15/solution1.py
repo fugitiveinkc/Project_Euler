@@ -7,9 +7,12 @@ Problem: Given a lattice path n x n, start at the north west corner and can only
 Notes:
 	-Works, but too slow.  Currently, depth first recursion.
 
+Extra:
+	-Figured out closed form of solution = (2n)! / 2(n!)
 '''
 
 from node import Node
+import sys
 
 #Set up lattice path
 
@@ -53,7 +56,7 @@ def traverseLattice(node):
 		
 
 if __name__ == '__main__':
-	lattice = setupLattice(21,21)
+	lattice = setupLattice(int(sys.argv[1]), int(sys.argv[2]))
 	print traverseLattice(lattice[0][0])
 			
 			
