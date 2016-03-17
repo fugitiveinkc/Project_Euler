@@ -5,4 +5,5 @@ class Node:
 		self.south = None
 		self.east = None
 		self.visited = False
+		self.value = 0
 

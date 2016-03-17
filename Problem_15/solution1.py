@@ -5,7 +5,7 @@ Title: Problem 15 -- Lattice paths
 Problem: Given a lattice path n x n, start at the north west corner and can only travel south or east, what are all the possible pathways to get to the south east corner?
 
 Notes:
-	-Works, but too slow.  Currently, depth first recursion.
+	-Works, but too slow.  Currently, depth first recursion. (Updated: Doesn't duplicate work anymore!  SUPAH FAST!)
 
 Extra:
 	-Figured out closed form of solution = (2n)! / 2(n!)
@@ -26,6 +26,7 @@ def setupLattice(n, m): #Uses node count, not block count (+1)
 		for y in range(m):
 			if x == n-1 and y == m-1:
 				lattice[x][y].end = True
+				lattice[x][y].value = 1
 			elif x == n-1:
 				lattice[x][y].east = lattice[x][y+1]
 			elif y == m-1:
@@ -43,16 +44,17 @@ def traverseLattice(node):
 	#3) Otherwise, check east and south.
 	#4) Traverse value that hasn't been visited and call traverse
 	#5) Mark as unvisited
-	node.visited = True
 	if node.end == True:
-		return 1
+		return node.value
 	else:
-		count = 0
 		for p in node.east, node.south:
 			if p != None:
-				count += traverseLattice(p)
-		node.visited = False
-		return count
+				if p.visited == True:
+					node.value += p.value
+				else:
+					node.value += traverseLattice(p)
+		node.visited = True
+		return node.value
 		
 
 if __name__ == '__main__':
