@@ -23,6 +23,11 @@ n_dict = {
 
 
 def number_to_string(number):
+	'''
+	Converts number to string.  Only works for numbers
+	1 through 1000 and has no spaces or hyphens.  Serves to count
+	number of digits per number.
+	'''
 	number_str = str(number) #String version of number
 	if len(number_str) == 1: #Units digits
 		return n_dict[number]
