@@ -43,9 +43,9 @@ def traverse_max(first_node):
 	while True:
 		current_sum = 0	
 		for a_node in visited: #Main traversal algorithm
-			print a_node.value
+			#print a_node.value
 			for b_node in a_node.neighbors:
-				print b_node.value
+				#print b_node.value
 				if a_node.distance + b_node.value < b_node.distance:
 					b_node.distance = a_node.distance + b_node.value
 					if b_node.distance < current_sum:
@@ -59,7 +59,8 @@ def traverse_max(first_node):
 			break
 	return next_node.distance*-1
 
-graph = graph_generator('pyramid2.txt')
-print 'Maximum path sum: ' + str(traverse_max(graph[0][0]))
+if __name__ == '__main__':
+	graph = graph_generator('pyramid2.txt')
+	print 'Maximum path sum: ' + str(traverse_max(graph[0][0]))
 
 			
