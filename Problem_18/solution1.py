@@ -6,6 +6,7 @@ Problem: Given a pyramid of numbers, find the maximumpath sum from top to bottom
 
 Current State: Gives wrong answer (algorithm logic is wrong)
 	-Not using brute force.  (Using dijkstra's algorithm reverse)
+	-Reason why not working: Dijkstra's algorithm cannot handle negative weights.  Try bellman-ford or find some other way.	
 
 '''
 
@@ -44,6 +45,7 @@ def traverse_max(first_node):
 		for a_node in visited: #Main traversal algorithm
 			print a_node.value
 			for b_node in a_node.neighbors:
+				print b_node.value
 				if a_node.distance + b_node.value < b_node.distance:
 					b_node.distance = a_node.distance + b_node.value
 					if b_node.distance < current_sum:
@@ -57,7 +59,7 @@ def traverse_max(first_node):
 			break
 	return next_node.distance*-1
 
-graph = graph_generator('pyramid.txt')
+graph = graph_generator('pyramid2.txt')
 print 'Maximum path sum: ' + str(traverse_max(graph[0][0]))
 
 			
