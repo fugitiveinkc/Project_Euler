@@ -6,10 +6,11 @@ Revision: Used pyramid simplification as algorithm
 	-How it works: Starts at the base and simplifies the next row by adding only feasible numbers from the row below it.  The pyramid becomes reduced by one row each iteration.
 
 '''
+import sys
 
 #Read in pyramid
 
-pyramid = open('pyramid.txt')
+pyramid = open(sys.argv[1])
 pyramid = [line.strip('\n').split(' ') for line in pyramid]
 pyramid = pyramid[::-1] #upside-down pyramid
 pyramid_int = []
